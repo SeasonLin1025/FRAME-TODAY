@@ -1,36 +1,90 @@
-# FRAME TODAY
+# 今日取景 · FRAME TODAY
 
-FRAME TODAY is a static, weather-led photography inspiration journal. It presents a small collection of themed editorial issues, including shot ideas, composition notes, colour palettes and downloadable visual cards.
+> 把天气变成出门拍照的创作机会。
 
-## Stack
+## 项目概述
+
+**今日取景**是一个面向图文内容创作者的拍摄灵感产品概念。它从「天气 × 场景 × 氛围」出发，将模糊的拍照念头整理成抵达现场后可以直接跟拍的镜头脚本，并支持将灵感保存为发布卡片。
+
+项目以 React 前端实现，完整还原了从选择天气、浏览主题刊页、获取拍摄建议到下载发布素材的交互闭环。
+
+## 为什么做它
+
+许多人会在内容平台收藏大量拍照灵感，却常在真正出门时陷入犹豫：
+
+- 阴天适合拍什么？下雨还要不要出门？
+- 到了咖啡馆、公园或街头，怎样把零散灵感变成一组照片？
+- 拍完后，如何更轻松地整理成愿意分享的图文内容？
+
+今日取景希望把天气从限制条件变成创作线索：用户不必从空白开始想象，而是获得与当下环境相匹配、可执行的拍摄方案。
+
+## 核心体验
+
+### 1. 从天气开始选择灵感
+
+用户先选择当前天气，再进入对应的拍摄刊页。现阶段提供 6 本预设刊页，覆盖晴天公园、阴天咖啡馆、小雨街头、夜色市集等不同情境。
+
+### 2. 获得可直接照拍的镜头脚本
+
+每本刊页都围绕特定场景单独设计，而不是简单替换文案。内容包含：
+
+- 三条可执行的镜头脚本与构图提示；
+- 光线、色彩、氛围和道具建议；
+- 容易踩坑的拍摄提醒；
+- 与场景一致的视觉排版和情绪化素材。
+
+用户抵达现场后，可以直接按建议完成一组有连贯性的图片内容。
+
+### 3. 将灵感变成可发布的内容素材
+
+用户可将当前刊页下载为分享卡，作为图文内容的封面或灵感页，再补充自己的跟拍照片进行发布。这一设计适用于小红书等以图片表达、经验分享和生活方式记录为主的内容平台：降低发文准备门槛，鼓励更多高质量图文作品产生。
+
+## 设计亮点
+
+- **内容与视觉一体化**：每个刊页的光线、配色、构图、道具与版式都随场景变化。
+- **从灵感到行动**：不只提供“好看参考”，而是提供抵达现场后可完成的拍摄步骤。
+- **轻量发布闭环**：将拍摄建议沉淀为可保存、可分享的发布素材，连接创作准备与内容表达。
+- **纯本地体验**：图片、字体与刊页素材均已随项目保留，运行时不依赖线上内容接口。
+
+## 下一步计划
+
+当前版本是概念验证（POC）。后续将重点验证用户在出门前选择刊页、保存发布卡以及实际完成拍摄的转化情况，并逐步探索：
+
+1. 接入实时天气，让推荐随时间、天气和城市变化；
+2. 结合现场画面理解，识别光线与场景特征；
+3. 从预设刊页升级为更动态、个性化的拍摄指导；
+4. 观察发布卡是否能提升图文内容的发布意愿和优质作品产出。
+
+## 技术栈
 
 - React 18 + TypeScript
 - Vite 5
 - Tailwind CSS
-- Framer Motion and html2canvas
+- Framer Motion
+- html2canvas（生成可下载的发布卡）
 
-## Run locally
+## 本地运行
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open the local URL printed by Vite (normally `http://localhost:5173`).
+打开 Vite 输出的本地地址，通常为 `http://localhost:5173`。
 
-## Build
+## 构建
 
 ```bash
 npm run build
 npm run preview
 ```
 
-The production files are written to `dist/`.
+生产构建产物输出至 `dist/`。
 
-## Assets
+## 静态资源
 
-All editorial images and bundled font files are preserved under `public/assets/`. Vite copies this directory to the build output, so the issue image paths remain self-contained when this repository is cloned and built on its own.
+刊页图片、字体与其他静态素材位于 `public/assets/`。Vite 会将它们原样复制至构建产物，因此克隆该仓库后可以独立运行和构建。
 
-## Boundaries
+## 已知边界
 
-This repository contains the frontend source and static interaction only. It has no confirmed backend, database, authentication, external API, or production deployment configuration. The included content can reproduce the supplied client-side experience, but is not a verified full-site backup.
+本仓库包含前端源码与静态交互，不包含已确认的后端、数据库、登录系统、实时天气接口或生产部署配置。它用于完整呈现当前的前端体验，但不应被视为全栈备份。
