@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light dark;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Noto Sans SC', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(20, 20, 18, 0.14);
+}
+
+/* 隐藏滚动条但保留滚动 */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* 发布卡导出节点：常驻文档流外（绝对定位离屏），html2canvas 按元素边界裁剪渲染 */
+.ts-export-mount {
+  position: absolute;
+  top: 0;
+  left: -24000px;
+  width: 1242px;
+}
